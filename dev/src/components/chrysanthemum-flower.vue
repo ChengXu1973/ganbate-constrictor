@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { computed } from 'vue';
 const props = defineProps<{ progress: number }>()
-const stage = computed(() => ~~(props.progress / 25));
+const stage = computed(() => ~~(props.progress / 25))
 const spin = computed(() => [5000, 4000, 3000, 2000, 1000][stage.value])
 </script>
 
@@ -19,6 +19,7 @@ const spin = computed(() => [5000, 4000, 3000, 2000, 1000][stage.value])
 <style scoped>
 .flower {
   position: relative;
+  top: -15vh;
   display: flex;
   align-items: center;
   justify-content: center;

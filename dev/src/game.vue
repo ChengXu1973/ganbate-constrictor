@@ -1,14 +1,16 @@
 <script setup lang="ts">
+import Bg from './components/bg.vue';
 import ChrysanthemumFlower from './components/chrysanthemum-flower.vue';
 import { useProgress } from './hooks/use-progress';
 
-const { progress, start } = useProgress()
+const { progress, playing, start } = useProgress()
 </script>
 
 <template>
   <div class="scene">
+    <bg />
     <chrysanthemum-flower :progress="progress" />
-    <div class="start" @click="start">start</div>
+    <div v-if="!playing" class="start" @click="start">GO</div>
   </div>
 </template>
 
@@ -23,6 +25,8 @@ const { progress, start } = useProgress()
   align-items: center;
   justify-content: center;
   height: 100vh;
+  position: relative;
+  overflow: hidden;
 }
 
 .start {

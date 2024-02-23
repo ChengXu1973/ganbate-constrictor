@@ -3,11 +3,13 @@ import { ref } from 'vue';
 export function useProgress() {
     const progress = ref(0)
     const startTime = ref(-1)
-    const roundTime = 10 * 1000;
+    const roundTime = 10 * 1000
+    const playing = ref(false)
 
     function start() {
         progress.value = 0
         startTime.value = Date.now()
+        playing.value = true
         tick()
     }
 
@@ -20,7 +22,7 @@ export function useProgress() {
         }
         if (progress.value >= 100) {
             startTime.value = -1
-            console.log('end')
+            playing.value = false
         } else {
             requestAnimationFrame(() => {
                 tick()
@@ -28,5 +30,5 @@ export function useProgress() {
         }
     }
 
-    return { progress, start }
+    return { progress, playing, start }
 }
