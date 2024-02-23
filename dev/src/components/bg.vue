@@ -12,6 +12,7 @@
     background-repeat: repeat;
     background-size: 80px;
     animation: move 5000ms linear infinite;
+    z-index: -999;
 }
 
 @keyframes move {
