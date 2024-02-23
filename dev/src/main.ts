@@ -1,5 +1,5 @@
 import { createApp } from 'vue'
+import Game from './game.vue'
 import './style.css'
-import App from './App.vue'
 
-createApp(App).mount('#app')
+createApp(Game).mount('#app')
